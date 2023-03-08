@@ -1,4 +1,10 @@
+using Hashboard.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<CoreDbContext>(op => op.UseSqlServer(builder.Configuration.GetConnectionString("Database"))); //Add       
+//builder.Services.AddControllers();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
